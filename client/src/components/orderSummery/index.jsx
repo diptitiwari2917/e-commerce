@@ -13,7 +13,6 @@ const OrderSummary = ({ product, variant, quantity }) => {
         />
         <div className="text-sm">
           <p className="font-medium">{product.title}</p>
-          <p className="text-gray-500">Variant: {variant}</p>
           <p className="text-gray-500">Qty: {quantity}</p>
         </div>
       </div>
@@ -25,7 +24,7 @@ const OrderSummary = ({ product, variant, quantity }) => {
         </div>
         <div className="flex justify-between font-semibold text-base border-t pt-2">
           <span>Total</span>
-          <span>{subtotal.toFixed(2)}</span>
+          <span>₹{subtotal.toFixed(2)}</span>
         </div>
       </div>
     </div>
