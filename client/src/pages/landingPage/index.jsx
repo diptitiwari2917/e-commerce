@@ -6,7 +6,7 @@ import { QuantitySelector } from "../../components/quantitySelector";
 import { ProductGallery } from "../../components/productGallery";
 import { ReviewSection } from "../../components/reviewSection";
 
-export default function LandingPage() {
+const LandingPage = () => {
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState(productDetail.images[0]);
   const [wishlisted, setWishlisted] = useState(false);
@@ -92,4 +92,6 @@ export default function LandingPage() {
       </div>
     </div>
   );
-}
+};
+
+export default LandingPage;
