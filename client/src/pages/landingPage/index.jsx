@@ -42,10 +42,10 @@ const LandingPage = () => {
 
         <div className="flex flex-wrap items-center gap-2">
           <span className="text-green-600 font-medium text-2xl sm:text-[32px]">
-            ₹{productDetail.price}
+            ₹{productDetail.price.toLocaleString()}
           </span>
           <span className="line-through text-gray-400">
-            ₹{productDetail.originalPrice}
+            ₹{productDetail.originalPrice.toLocaleString()}
           </span>
           <span className="text-orange-500 font-semibold">
             ({productDetail.off}% OFF)

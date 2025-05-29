@@ -20,11 +20,11 @@ const OrderSummary = ({ product, variant, quantity }) => {
       <div className="border-t pt-2 space-y-1 text-sm">
         <div className="flex justify-between">
           <span>Subtotal</span>
-          <span>₹{subtotal.toFixed(2)}</span>
+          <span>₹{subtotal.toLocaleString()}</span>
         </div>
         <div className="flex justify-between font-semibold text-base border-t pt-2">
           <span>Total</span>
-          <span>₹{subtotal.toFixed(2)}</span>
+          <span>₹{subtotal.toLocaleString()}</span>
         </div>
       </div>
     </div>
