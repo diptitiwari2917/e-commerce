@@ -1,14 +1,24 @@
-import { useState } from "react";
-import { Heart, ShoppingBag, Minus, Plus, Star } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import { productDetail } from "../constant";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Heart, ShoppingBag } from "lucide-react";
 import { QuantitySelector } from "../../components/quantitySelector";
 import { ProductGallery } from "../../components/productGallery";
 import { ReviewSection } from "../../components/reviewSection";
 
 const LandingPage = () => {
+  const location = useLocation();
   const navigate = useNavigate();
-  const [selectedImage, setSelectedImage] = useState(productDetail.images[0]);
+  const productDetail = location.state?.product;
+
+  useEffect(() => {
+    if (!productDetail) {
+      navigate("/");
+    }
+  }, [productDetail]);
+
+  const [selectedImage, setSelectedImage] = useState(
+    productDetail?.images?.[0] || ""
+  );
   const [wishlisted, setWishlisted] = useState(false);
   const [quantity, setQuantity] = useState(1);
 
@@ -24,6 +34,8 @@ const LandingPage = () => {
 
   const toggleWishlist = () => setWishlisted((prev) => !prev);
 
+  if (!productDetail) return null;
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-4 pt-16 max-w-7xl mx-auto">
       <ProductGallery
@@ -31,15 +43,13 @@ const LandingPage = () => {
         selectedImage={selectedImage}
         onSelect={setSelectedImage}
       />
-
-      <div className="space-y-4 lg:px-0 px-10 ">
+      <div className="space-y-4 lg:px-0 px-10">
         <h2 className="text-xl sm:text-2xl font-semibold text-gray-800">
           {productDetail.title}
         </h2>
         <p className="text-base sm:text-lg text-gray-600">
           {productDetail.subTitle}
         </p>
-
         <div className="flex flex-wrap items-center gap-2">
           <span className="text-green-600 font-medium text-2xl sm:text-[32px]">
             ₹{productDetail.price.toLocaleString()}
@@ -51,7 +61,6 @@ const LandingPage = () => {
             ({productDetail.off}% OFF)
           </span>
         </div>
-
         <QuantitySelector
           quantity={quantity}
           onChange={(type) =>
@@ -62,7 +71,6 @@ const LandingPage = () => {
             })
           }
         />
-
         <div className="flex flex-wrap gap-4 pt-2">
           <button
             onClick={handleBuyNow}
@@ -87,7 +95,6 @@ const LandingPage = () => {
             Wishlist
           </button>
         </div>
-
         <ReviewSection />
       </div>
     </div>
