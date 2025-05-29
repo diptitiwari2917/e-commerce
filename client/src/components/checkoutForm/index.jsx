@@ -80,7 +80,7 @@ const CheckoutForm = ({ form, errors, handleChange }) => (
       <Input
         name="expiry"
         label="Expiry Date"
-        placeholder="01/01"
+        placeholder="MM/YY"
         value={form.expiry}
         onChange={handleChange}
         error={errors.expiry}

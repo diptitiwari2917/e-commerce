@@ -3,7 +3,7 @@ export const ProductGallery = ({ images, selectedImage, onSelect }) => (
     <div className="w-full max-w-sm rounded-2xl shadow-md overflow-hidden">
       <img
         src={selectedImage}
-        alt="T-shirt preview"
+        alt="watch"
         className="object-cover w-full h-full transition-transform duration-300 ease-in-out hover:scale-105"
       />
     </div>
