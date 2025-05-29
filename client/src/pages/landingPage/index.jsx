@@ -9,6 +9,7 @@ import { ReviewSection } from "../../components/reviewSection";
 export default function LandingPage() {
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState(productDetail.images[0]);
+  const [wishlisted, setWishlisted] = useState(false);
   const [quantity, setQuantity] = useState(1);
 
   const handleBuyNow = () => {
@@ -20,6 +21,8 @@ export default function LandingPage() {
     sessionStorage.setItem("order", JSON.stringify(orderData));
     navigate("/checkout");
   };
+
+  const toggleWishlist = () => setWishlisted((prev) => !prev);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-4 pt-16 max-w-7xl mx-auto">
@@ -68,8 +71,19 @@ export default function LandingPage() {
             <ShoppingBag className="w-4 h-4" />
             Buy now
           </button>
-          <button className="border border-gray-300 text-gray-700 px-4 py-2 flex items-center gap-2 rounded">
-            <Heart className="w-4 h-4" />
+          <button
+            onClick={toggleWishlist}
+            className={`px-4 py-2 flex items-center gap-2 rounded border transition ${
+              wishlisted
+                ? "bg-pink-100 border-pink-400 text-pink-400"
+                : "border-gray-300 text-gray-700"
+            }`}
+          >
+            <Heart
+              className={`w-4 h-4 ${
+                wishlisted ? "fill-pink-400 text-pink-400" : "text-gray-500"
+              }`}
+            />
             Wishlist
           </button>
         </div>
