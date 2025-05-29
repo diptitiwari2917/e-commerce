@@ -14,3 +14,37 @@ export const productDetail = {
     "https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/2/d/2d09e51JWBS898_9.jpg?rnd=20200526195200&tr=w-720",
   ],
 };
+
+export const cityOptions = [
+  "Mumbai",
+  "Delhi",
+  "Bengaluru",
+  "Hyderabad",
+  "Ahmedabad",
+  "Chennai",
+  "Kolkata",
+  "Pune",
+  "Jaipur",
+  "Surat",
+  "Lucknow",
+  "Kanpur",
+  "Nagpur",
+  "Indore",
+];
+
+export const stateOptions = [
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chhattisgarh",
+  "Goa",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Madhya Pradesh",
+  "Maharashtra",
+];
